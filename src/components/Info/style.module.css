@@ -70,3 +70,20 @@
         font-size: 0.5rem;
     }
 }
+
+@media screen and (max-width: 360px) {
+
+
+    .infoContainer {
+        width: 95%;
+        gap: 10%;
+    }
+
+    .itemText {
+        font-size: 0.8rem;
+    }
+
+    .itemDesc {
+        font-size: 0.4rem;
+    }
+}
