@@ -1,18 +1,16 @@
 import Head from 'next/head'
-import Image from 'next/image'
-import { Inter } from 'next/font/google'
 import styles from '@/styles/Home.module.css'
 import Info from '@/components/Info'
-import { GetStaticProps } from 'next';
 
-const inter = Inter({ subsets: ['latin'] })
+import { GetStaticProps } from 'next';
+import TopSection from '@/components/TopSection';
 
 interface HomeProps {
   partners: number,
   clients: number
 }
 
-export default function Home({partners, clients}: HomeProps) {
+export default function Home({ partners, clients }: HomeProps) {
   return (
     <>
       <Head>
@@ -20,11 +18,10 @@ export default function Home({partners, clients}: HomeProps) {
       </Head>
 
       <main className={styles.main}>
-        <section className={styles.topSection}>
 
-        </section>
+        <TopSection buttonText='Open your account' mainText='A Super App that simplify your life.' topText='more than a bank' />
 
-        <Info partners={partners} clients={clients}/>
+        <Info partners={partners} clients={clients} />
       </main>
     </>
   )

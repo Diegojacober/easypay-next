@@ -1,0 +1,54 @@
+.container {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    margin-top: 60px;
+}
+
+.imagePhones{
+    max-width: 250px;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+}
+
+.imagePhone {
+    max-width: 190px;
+    object-fit: contain;
+    width: auto;
+    height: auto;
+}
+
+.centerDiv {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.topText{
+    color: var(--white);
+    font-weight: 100;
+}
+
+.mainText{
+    margin-bottom: 20px;
+    font-weight: 400;
+    color: var(--white);
+    max-width: 550px;
+    line-height: 1.5;
+    letter-spacing: 1.4px;
+    text-align: center;
+    font-size: 3.6rem;
+}
+
+.mainButton {
+    background: transparent;
+    border: none;
+    color: var(--light-blue);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    font-size: 1.5rem;
+}

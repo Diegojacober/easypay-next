@@ -24,7 +24,7 @@ export default function Info({partners, clients}: InfoProps){
             </article>
 
             <article className={styles.Item}>
-                <p className={styles.itemText}>{clients + 10}</p>
+                <p className={styles.itemText}>{clients * 10}</p>
                 <small className={styles.itemDesc}>Worldwide clients</small>
             </article>
         </section>
