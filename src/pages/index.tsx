@@ -4,6 +4,7 @@ import Info from '@/components/Info'
 
 import { GetStaticProps } from 'next';
 import TopSection from '@/components/TopSection';
+import Adsense from '@/components/Adsense';
 
 interface HomeProps {
   partners: number,
@@ -22,6 +23,8 @@ export default function Home({ partners, clients }: HomeProps) {
         <TopSection buttonText='Open your account' mainText='A Super App that simplify your life.' topText='more than a bank' />
 
         <Info partners={partners} clients={clients} />
+
+        <Adsense />
       </main>
     </>
   )
