@@ -2,7 +2,7 @@ import styled from "styled-components";
 
 export const Container = styled.section`
     & {
-        background-color: var(--blue);
+        background-color: ${(props) => props.theme.color.secundary.main};;
         width: 85%;
         min-height: 50vh;
         border-radius: 15px;
@@ -35,7 +35,13 @@ export const DescriptionArea = styled.article`
     }
 `;
 
-export const DescriptionTitle = styled.h3``;
+export const DescriptionTitle = styled.h3`
+    & {
+        font-size: 44px;
+        color: var(--white);
+        font-weight: bold;
+    }
+`;
 
 export const DescriptionText = styled.p``;
 

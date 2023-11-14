@@ -1,6 +1,8 @@
 import Head from 'next/head'
 import styles from '@/styles/Home.module.css'
 import Info from '@/components/Info'
+import { ThemeProvider } from "styled-components";
+import Theme from '@/styles/Theme';
 
 import { GetStaticProps } from 'next';
 import TopSection from '@/components/TopSection';
@@ -14,7 +16,7 @@ interface HomeProps {
 
 export default function Home({ partners, clients }: HomeProps) {
   return (
-    <>
+    <ThemeProvider theme={Theme}>
       <Head>
         <title>EasyPay Bank</title>
       </Head>
@@ -29,7 +31,7 @@ export default function Home({ partners, clients }: HomeProps) {
 
         <Features /> 
       </main>
-    </>
+    </ThemeProvider>
   )
 }
 
