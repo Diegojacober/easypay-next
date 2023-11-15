@@ -1,4 +1,3 @@
-import Link from "next/link";
 import { FooterContainer } from "./styled";
 
 export default function Footer() {

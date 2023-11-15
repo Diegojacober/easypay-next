@@ -1,27 +1,30 @@
-import image from "@/../public/assets/finnancas-image.svg";
-import Input from "@/components/Input";
-import styles from "@/styles/Login.module.css";
 import Head from "next/head";
+import { useState } from "react";
+import image from "@/../public/assets/finnancas-image.svg";
+import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import Input from "@/components/Input";
 
-export default function Login() {
+export default function Register() {
   const [email, setEmail] = useState<string>("");
+  const [firstName, setFirstName] = useState<string>("");
+  const [lastName, setLastName] = useState<string>("");
+  const [CPF, setCPF] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
   return (
     <>
       <Head>
-        <title>Login - EasyPay Bank</title>
+        <title>Register - EasyPay Bank</title>
       </Head>
 
       <main className={styles.main}>
         <section className={styles.content}>
           <article className={styles.formArea}>
             <div className={styles.formDetails}>
-              <h2>Login</h2>
-              <p>Enter you account details</p>
+              <h2>Register</h2>
+              <p>Create your account</p>
             </div>
 
             <form className={styles.form}>
@@ -33,20 +36,41 @@ export default function Login() {
               />
 
               <Input
+                type="text"
+                value={firstName}
+                set={setFirstName}
+                placeholder="First Name"
+              />
+
+              <Input
+                type="text"
+                value={lastName}
+                set={setLastName}
+                placeholder="Last Name"
+              />
+
+              <Input
+                type="text"
+                value={CPF}
+                set={setCPF}
+                placeholder="CPF(no special characters)"
+              />
+
+              <Input
                 type="password"
                 value={password}
                 set={setPassword}
                 placeholder="Password"
               />
 
-              <button type="submit">Login</button>
+              <button type="submit">Register</button>
             </form>
           </article>
 
           <div className={styles.bottomArea}>
-            <p>Don't have an account?</p>
-            <Link passHref href="/register" legacyBehavior>
-              <a>Sign up</a>
+            <p>I've an account</p>
+            <Link passHref href="/login" legacyBehavior>
+              <a>Login</a>
             </Link>
           </div>
         </section>

@@ -40,22 +40,6 @@
     margin: 0 auto;
 }
 
-.inputArea input {
-    width: 100%;
-    padding: 5px;
-    background: transparent;
-    border: none;
-    border-bottom: 1px solid var(--white);
-    color: var(--white);
-    font-size: 14px;
-}
-
-.inputArea input:focus {
-    border: none;
-    outline: none;
-    border-bottom: 1px solid var(--white);
-}
-
 .form button {
     width: 100%;
     padding: 10px;
@@ -70,11 +54,6 @@
 
 .form button:hover {
     filter: brightness(85%);
-}
-
-.inputArea {
-    margin-bottom: 40px;
-    width: 100%;
 }
 
 .ads{
@@ -133,4 +112,102 @@
 
 .bottomArea a:hover {
     filter: brightness(95%);
+}
+
+@media screen and (max-width: 910px) {
+
+    .ads .title h3 {
+        font-size: 3rem;
+    }
+    
+    .imageSection .image {
+        width: 85%;
+        height: 85%;
+    }
+    
+    .ads .title small {
+        font-size: .8rem;
+    }
+
+    .form button {
+        font-size: 1rem;
+    }
+
+    .bottomArea {
+        flex-wrap: wrap;
+    }
+
+    .bottomArea a {
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 912px) {
+    .ads {
+        display: none;
+    }
+
+    .main {
+        display: block;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+
+    .form button {
+        font-size: 1rem;
+    }
+
+    .bottomArea {
+        flex-wrap: wrap;
+    }
+
+    .bottomArea a {
+        font-size: .9rem;
+    }
+}
+
+@media screen and (max-width: 325px) {
+    .ads {
+        display: none;
+    }
+
+    .main {
+        display: block;
+    }
+
+    .content {
+        width: 100%;
+    }
+
+    .formArea {
+        width: 100%;
+    }
+    
+
+    .form button {
+        font-size: .9rem;
+    }
+
+    .formDetails h2 {
+        font-size: 1.8rem;
+    }
+    
+    .formDetails p {
+        font-size: .6rem;
+    }
+
+    .bottomArea {
+        flex-wrap: wrap;
+    }
+
+    .bottomArea a {
+        font-size: .7rem;
+    }
+
+    .bottomArea p {
+        font-size: .6rem;
+    }
 }
