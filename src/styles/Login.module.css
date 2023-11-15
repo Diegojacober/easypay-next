@@ -1,0 +1,136 @@
+.main {
+    background-color: var(--blue);
+    display: flex;
+    user-select: none;
+}
+
+.content {
+    padding: 80px;
+    padding-top: 155px;
+    background-color: #1C1D21;
+    height: 100vh;
+    width: 45%;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    flex-direction: column;
+}
+
+.formArea {
+    width: 80%;
+    margin: 0 auto;
+}
+
+.formDetails {
+    color: var(--white);
+    margin-bottom: 35px;
+}
+
+.formDetails h2 {
+    font-size: 2.5rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+}
+
+.formDetails p {
+    font-size: 1rem;
+}
+
+.form {
+    margin: 0 auto;
+}
+
+.inputArea input {
+    width: 100%;
+    padding: 5px;
+    background: transparent;
+    border: none;
+    border-bottom: 1px solid var(--white);
+    color: var(--white);
+    font-size: 14px;
+}
+
+.inputArea input:focus {
+    border: none;
+    outline: none;
+    border-bottom: 1px solid var(--white);
+}
+
+.form button {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: none;
+    margin-top: 10px;
+    color: var(--white);
+    background: var(--blue);
+    transition: all ease 0.6s;
+    font-size: 1.1rem;
+}
+
+.form button:hover {
+    filter: brightness(85%);
+}
+
+.inputArea {
+    margin-bottom: 40px;
+    width: 100%;
+}
+
+.ads{
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.ads .title {
+    color: var(--white);
+}
+
+.ads .title h3 {
+    font-size: 4.5rem;
+}
+
+.ads .title h3 span {
+    display: block;
+    font-weight: 400;
+}
+
+.ads .title small {
+    font-size: 1.2rem;
+}
+
+
+.imageSection {
+    display: flex;
+    align-items: flex-end;
+    justify-content: flex-end;
+}
+
+.imageSection .image {
+    width: 95%;
+    height: 95%;
+}
+
+.bottomArea {
+    margin: 0 auto;
+    display: flex;
+    width: 80%;
+    justify-content: space-between;
+    color: #7f8081;
+}
+
+.bottomArea a {
+    text-decoration: none;
+    background: #333437;
+    padding: 10px 15px;
+    border-radius: 5px;
+    color: var(--white);
+    transition: all ease .2s;
+}
+
+.bottomArea a:hover {
+    filter: brightness(95%);
+}

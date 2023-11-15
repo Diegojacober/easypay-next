@@ -24,7 +24,7 @@ export default function Features() {
             Best features provided by <br /> EasyPay Bank
           </DescriptionTitle>
           <DescriptionText>
-            Alpha Bank stands out with its technological innovation, providing
+            Easy pay stands out with its technological innovation, providing
             personalized service, a wide range of financial products, and a
             commitment to the community. With a focus on security and ethics,
             it's a reliable and modern choice for individuals and businesses.

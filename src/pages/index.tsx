@@ -1,15 +1,15 @@
 import Info from "@/components/Info";
 import styles from "@/styles/Home.module.css";
-import Theme from "@/styles/Theme";
 import Head from "next/head";
-import { ThemeProvider } from "styled-components";
 
 import Adsense from "@/components/Adsense";
+import Chat from "@/components/Chat";
 import Features from "@/components/Features";
+import Footer from "@/components/Footer";
 import TopSection from "@/components/TopSection";
 import { GetStaticProps } from "next";
-import Footer from "@/components/Footer";
-import Chat from "@/components/Chat";
+import Header from "@/components/Header";
+
 
 interface HomeProps {
   partners: number;
@@ -18,11 +18,11 @@ interface HomeProps {
 
 export default function Home({ partners, clients }: HomeProps) {
   return (
-    <ThemeProvider theme={Theme}>
+    <>
       <Head>
         <title>EasyPay Bank</title>
       </Head>
-
+      <Header />
       <main className={styles.main}>
         <TopSection
           buttonText="Open your account"
@@ -31,15 +31,12 @@ export default function Home({ partners, clients }: HomeProps) {
         />
 
         <Info partners={partners} clients={clients} />
-
         <Adsense />
-
         <Features />
-
-        <Chat/>
-        <Footer/>
+        <Chat />
+        <Footer />
       </main>
-    </ThemeProvider>
+    </>
   );
 }
 

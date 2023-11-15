@@ -2,8 +2,10 @@ import styles from "./style.module.css";
 import Link from "next/link";
 import logo from "@/../public/assets/logo.svg";
 import Image from "next/image";
+import { useRouter } from 'next/navigation'
 
 export default function Header() {
+  const router = useRouter()
   return (
     <header className={styles.header}>
       <section className={styles.content}>
@@ -34,8 +36,8 @@ export default function Header() {
             </div>
 
             <div className={styles.navButtons}>
-              <button className={styles.createButton}>Create Account</button>
-              <button className={styles.loginButton}>Access</button>
+              <button  onClick={() => router.push('/register', { scroll: false })} className={styles.createButton}>Create Account</button>
+              <button onClick={() => router.push('/login', { scroll: false })} className={styles.loginButton}>Access</button>
             </div>
           </div>
         </nav>
