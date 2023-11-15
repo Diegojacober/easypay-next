@@ -80,7 +80,7 @@ export default function Register() {
             <h3>
               Welcome to <span>Easy pay</span>
             </h3>
-            <small>Login to access your account</small>
+            <small>Register your new account</small>
           </div>
 
           <div className={styles.imageSection}>
