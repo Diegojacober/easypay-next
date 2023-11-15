@@ -1,128 +1,129 @@
 .adsenseBody {
-    margin-top: 5%;
-    padding: 40px 15px;
-    background: #1A1A1A;
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    margin-bottom: 100px;
+  margin-top: 5%;
+  padding: 40px 15px;
+  background: #1a1a1a;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 100px;
 }
 
 .card {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    color: var(--white);
-    width: 80%;
-    margin: 0 auto;
-    margin-bottom: 5px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  color: var(--white);
+  width: 80%;
+  margin: 0 auto;
+  margin-bottom: 5px;
 }
 
 .cardBody {
-    width: 100%;
+  width: 100%;
 }
 
 .cardBody:last-child {
-    display: flex;
-    align-items: flex-end;
-    flex-direction: column;
-    justify-content: center;
+  display: flex;
+  align-items: flex-end;
+  flex-direction: column;
+  justify-content: center;
 }
 
 .cardBody p {
-    width: 55%;
-    font-size: 2.8rem;
-    font-weight: bold;
-    margin-bottom: 12px;
+  width: 55%;
+  font-size: 2.8rem;
+  font-weight: bold;
+  margin-bottom: 12px;
 }
 
-
 .cardButton:last-child {
-    width: 55%;
+  width: 55%;
 }
 
 .cardButton {
-    color: var(--blue);
-    text-decoration: none;
-    font-size: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    overflow: hidden;
-    background: linear-gradient(to right, var(--light-blue), var(--light-blue) 50%, var(--blue) 50%);
-    background-clip: text;
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-size: 200% 100%;
-    background-position: 100%;
-    transition: all 0.7s ease;
-    text-decoration: none;
+  color: var(--blue);
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  overflow: hidden;
+  background: linear-gradient(
+    to right,
+    var(--light-blue),
+    var(--light-blue) 50%,
+    var(--blue) 50%
+  );
+  background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-size: 200% 100%;
+  background-position: 100%;
+  transition: all 0.7s ease;
+  text-decoration: none;
 }
 
 .cardButton:hover {
-    background-position: 0 100%;
-    color: var(--light-blue);
+  background-position: 0 100%;
+  color: var(--light-blue);
 }
 
 @media screen and (max-width: 1200px) {
-    .cardBody p {
-        font-size: 2rem;
-    }
+  .cardBody p {
+    font-size: 2rem;
+  }
 
-    .cardButton {
-        font-size: 1rem;
-        justify-content: start;
-    }
+  .cardButton {
+    font-size: 1rem;
+    justify-content: start;
+  }
 }
-
 
 @media screen and (max-width: 815px) {
-    .adsenseBody {
-        padding: 20px 4px;
-    }
-    .cardBody p {
-        font-size: 1.5rem;
-    }
+  .adsenseBody {
+    padding: 20px 4px;
+  }
+  .cardBody p {
+    font-size: 1.5rem;
+  }
 
-    .cardButton {
-        font-size: 0.8rem;
-        justify-content: start;
-    }
+  .cardButton {
+    font-size: 0.8rem;
+    justify-content: start;
+  }
 
-    .cardImage {
-        width: 95%;
-        height: 95%;
-    }
+  .cardImage {
+    width: 95%;
+    height: 95%;
+  }
 }
 
-
-
 @media screen and (max-width: 620px) {
-    .card {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
-        margin-bottom: 15px;
-    }
+  .card {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 15px;
+  }
 
-    .cardImage {
-        display: none;
-    }
+  .cardImage {
+    display: none;
+  }
 
-    .cardBody p {
-        font-size: 1.4rem;
-        width: 100%;
-        text-align: left;
-        margin-bottom: 2px;
-    }
+  .cardBody p {
+    font-size: 1.4rem;
+    width: 100%;
+    text-align: left;
+    margin-bottom: 2px;
+  }
 
-    .cardButton {
-        font-size: 0.8rem;
-        justify-content: start;
-    }
+  .cardButton {
+    font-size: 0.8rem;
+    justify-content: start;
+  }
 
-    .cardButton:last-child {
-        width: 100%;
-    }
+  .cardButton:last-child {
+    width: 100%;
+  }
 }

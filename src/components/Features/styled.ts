@@ -13,7 +13,7 @@ export const Container = styled.section`
 
   @media screen and (max-width: 815px) {
     & {
-        display: none;
+      display: none;
     }
   }
 `;
@@ -30,7 +30,7 @@ export const SectionTitle = styled.h2`
 
   @media screen and (max-width: 1024px) {
     & {
-        font-size: 0.8rem;
+      font-size: 0.8rem;
     }
   }
 `;
@@ -44,9 +44,9 @@ export const Content = styled.div`
 
   @media screen and (max-width: 1024px) {
     & {
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
     }
   }
 `;
@@ -67,7 +67,7 @@ export const DescriptionTitle = styled.h3`
 
   @media screen and (max-width: 1024px) {
     & {
-        font-size: 22px;
+      font-size: 22px;
     }
   }
 `;
@@ -85,8 +85,8 @@ export const DescriptionText = styled.p`
 
   @media screen and (max-width: 1024px) {
     & {
-        font-size: 16px;
-        width: 100%;
+      font-size: 16px;
+      width: 100%;
     }
   }
 `;
@@ -103,8 +103,8 @@ export const DescriptionButtons = styled.div`
 
   @media screen and (max-width: 1024px) {
     & {
-        width: 100%;
-        margin-top: 10%;
+      width: 100%;
+      margin-top: 10%;
     }
   }
 `;
@@ -123,15 +123,14 @@ export const ButtonStyled = styled.a`
     transition: all ease 0.3s;
   }
 
-
   &:hover {
     transform: scale(1.08);
   }
 
   @media screen and (max-width: 1024px) {
     & {
-        font-size: 16px;
-        padding: 3% 5%;
+      font-size: 16px;
+      padding: 3% 5%;
     }
   }
 `;
@@ -157,8 +156,8 @@ export const DefaultButton = styled.a`
 
   @media screen and (max-width: 1024px) {
     & {
-        font-size: 16px;
-        padding: 3% 5%;
+      font-size: 16px;
+      padding: 3% 5%;
     }
   }
 `;
@@ -175,52 +174,52 @@ export const Items = styled.article`
 
   @media screen and (max-width: 1024px) {
     & {
-        border-top: 1px solid #000;
-        padding-top: 50px;
+      border-top: 1px solid #000;
+      padding-top: 50px;
     }
   }
 `;
 
 export const Item = styled.div`
-    & {
-        width: 260px;
-        height: 200px;
-        display: flex;
-        flex-direction: column;
-        text-align: center;
-        justify-content: center;
-        border-radius: 20px;
-        color: var(--white);
-        transition: all ease 0.5s;
-    }
+  & {
+    width: 260px;
+    height: 200px;
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    justify-content: center;
+    border-radius: 20px;
+    color: var(--white);
+    transition: all ease 0.5s;
+  }
 
-    & h4{
-        font-size: 18px;
-        font-weight: 500;
-        transform: translateY(110%);
-        transition: all ease 0.5s;
-    }
+  & h4 {
+    font-size: 18px;
+    font-weight: 500;
+    transform: translateY(110%);
+    transition: all ease 0.5s;
+  }
 
-    & p {
-        font-size: 13px;
-        width: 250px;
-        text-align: center;
-        margin: 0 auto;
-        opacity: 0;
-        transition: all ease 0.5s;
-        margin-top: 20px;
-    }
+  & p {
+    font-size: 13px;
+    width: 250px;
+    text-align: center;
+    margin: 0 auto;
+    opacity: 0;
+    transition: all ease 0.5s;
+    margin-top: 20px;
+  }
 
-    &:hover {
-        background: var(--light-blue);
-        box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
-    }
+  &:hover {
+    background: var(--light-blue);
+    box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
+  }
 
-    &:hover h4 {
-        transform: translateY(-90%);
-    }
+  &:hover h4 {
+    transform: translateY(-90%);
+  }
 
-    &:hover p {
-        opacity: 1;
-    }
+  &:hover p {
+    opacity: 1;
+  }
 `;
