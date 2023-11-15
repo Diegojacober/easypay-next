@@ -8,7 +8,7 @@ export default function Features() {
 
             <Content>
                 <DescriptionArea>
-                    <DescriptionTitle>Best features provided by EasyPay Bank</DescriptionTitle>
+                    <DescriptionTitle>Best features provided by <br /> EasyPay Bank</DescriptionTitle>
                     <DescriptionText>Alpha Bank stands out with its technological innovation,
                         providing personalized service, a wide range of financial products,
                         and a commitment to the community.
@@ -46,16 +46,6 @@ export default function Features() {
 
                     <Item>
                         <h4>Transparency</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facilis qui, omnis voluptates aliquid nobis illo reiciendis</p>
-                    </Item>
-
-                    <Item>
-                        <h4>Financial Education</h4>
-                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facilis qui, omnis voluptates aliquid nobis illo reiciendis</p>
-                    </Item>
-
-                    <Item>
-                        <h4>Personalized Service</h4>
                         <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro facilis qui, omnis voluptates aliquid nobis illo reiciendis</p>
                     </Item>
                 </Items>

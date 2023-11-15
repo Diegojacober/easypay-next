@@ -43,12 +43,26 @@
 }
 
 .cardButton {
-    color: var(--light-blue);
+    color: var(--blue);
     text-decoration: none;
     font-size: 1.5rem;
     display: flex;
     align-items: center;
     gap: 10px;
+    overflow: hidden;
+    background: linear-gradient(to right, var(--light-blue), var(--light-blue) 50%, var(--blue) 50%);
+    background-clip: text;
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-size: 200% 100%;
+    background-position: 100%;
+    transition: all 0.7s ease;
+    text-decoration: none;
+}
+
+.cardButton:hover {
+    background-position: 0 100%;
+    color: var(--light-blue);
 }
 
 @media screen and (max-width: 1200px) {
