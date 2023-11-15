@@ -8,6 +8,8 @@ import Adsense from "@/components/Adsense";
 import Features from "@/components/Features";
 import TopSection from "@/components/TopSection";
 import { GetStaticProps } from "next";
+import Footer from "@/components/Footer";
+import Chat from "@/components/Chat";
 
 interface HomeProps {
   partners: number;
@@ -33,6 +35,9 @@ export default function Home({ partners, clients }: HomeProps) {
         <Adsense />
 
         <Features />
+
+        <Chat/>
+        <Footer/>
       </main>
     </ThemeProvider>
   );
