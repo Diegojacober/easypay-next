@@ -10,6 +10,12 @@ export const Container = styled.section`
     margin-bottom: 20px;
     padding: 25px;
   }
+
+  @media screen and (max-width: 815px) {
+    & {
+        display: none;
+    }
+  }
 `;
 
 export const SectionTitle = styled.h2`
@@ -21,6 +27,12 @@ export const SectionTitle = styled.h2`
     margin-top: 10px;
     margin-left: 10px;
   }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        font-size: 0.8rem;
+    }
+  }
 `;
 
 export const Content = styled.div`
@@ -28,6 +40,14 @@ export const Content = styled.div`
     display: flex;
     align-items: start;
     margin-top: 10px;
+  }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+    }
   }
 `;
 
@@ -44,6 +64,12 @@ export const DescriptionTitle = styled.h3`
     color: ${(props) => props.theme.color.primary.contrastText};
     font-weight: bold;
   }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        font-size: 22px;
+    }
+  }
 `;
 
 export const DescriptionText = styled.p`
@@ -56,6 +82,13 @@ export const DescriptionText = styled.p`
     width: 80%;
     line-height: 1.3;
   }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        font-size: 16px;
+        width: 100%;
+    }
+  }
 `;
 
 export const DescriptionButtons = styled.div`
@@ -67,6 +100,13 @@ export const DescriptionButtons = styled.div`
     gap: 20%;
     width: 80%;
   }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        width: 100%;
+        margin-top: 10%;
+    }
+  }
 `;
 
 export const ButtonStyled = styled.a`
@@ -75,7 +115,7 @@ export const ButtonStyled = styled.a`
     padding: 5.3% 8%;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 19px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -87,6 +127,13 @@ export const ButtonStyled = styled.a`
   &:hover {
     transform: scale(1.08);
   }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        font-size: 16px;
+        padding: 3% 5%;
+    }
+  }
 `;
 
 export const DefaultButton = styled.a`
@@ -95,7 +142,7 @@ export const DefaultButton = styled.a`
     padding: 5.3% 8%;
     text-decoration: none;
     font-weight: bold;
-    font-size: 20px;
+    font-size: 19px;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -107,6 +154,13 @@ export const DefaultButton = styled.a`
   &:hover {
     transform: scale(1.08);
   }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        font-size: 16px;
+        padding: 3% 5%;
+    }
+  }
 `;
 
 export const Items = styled.article`
@@ -117,6 +171,13 @@ export const Items = styled.article`
     height: 100%;
     width: 100%;
     justify-content: space-around;
+  }
+
+  @media screen and (max-width: 1024px) {
+    & {
+        border-top: 1px solid #000;
+        padding-top: 50px;
+    }
   }
 `;
 
