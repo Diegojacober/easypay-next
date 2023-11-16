@@ -1,0 +1,7 @@
+.main {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-around;
+    padding: 50px;
+    gap: 20%;
+}
