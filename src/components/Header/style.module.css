@@ -66,7 +66,7 @@
   justify-content: center;
 }
 
-.createButton {
+.createButton, .logoutButton {
   background: var(--light-blue);
   color: var(--white);
   padding: 8px 15px;
@@ -76,7 +76,11 @@
   transition: all 0.2s;
 }
 
-.createButton:hover {
+.logoutButton {
+  background: #A43D3D;
+}
+
+.createButton:hover, .logoutButton:hover {
   filter: brightness(110%);
 }
 

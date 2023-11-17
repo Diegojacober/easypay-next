@@ -1,14 +1,40 @@
 import image from "@/../public/assets/finnancas-image.svg";
 import Input from "@/components/Input";
+import useAuthStore from "@/store/useAuthStore";
 import styles from "@/styles/Login.module.css";
 import Head from "next/head";
 import Image from "next/image";
 import Link from "next/link";
-import { useState } from "react";
+import Router from "next/router";
+import { useEffect } from "react";
+import { useForm } from "react-hook-form";
 
 export default function Login() {
-  const [email, setEmail] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+  const [signIn, isAuthenticated] = useAuthStore(
+    (state) => [
+      state.signIn,
+      state.isAuthenticated
+    ]
+  );
+
+  const onSubmit = async (data: any) => {
+    signIn(data.email, data.password)
+    reset();
+  };
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      Router.push("/home")
+    }
+  }, []);
 
   return (
     <>
@@ -24,19 +50,33 @@ export default function Login() {
               <p>Enter you account details</p>
             </div>
 
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
               <Input
                 type="email"
-                value={email}
-                set={setEmail}
                 placeholder="E-mail"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "Email is required",
+                  minLength: {
+                    value: 3,
+                    message: "Please enter a minimum of 3 characters"
+                  }
+                }}
+                name="email"
+                required
               />
 
               <Input
+                name="password"
                 type="password"
-                value={password}
-                set={setPassword}
                 placeholder="Password"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "Password is required"
+                }}
+                required
               />
 
               <button type="submit">Login</button>

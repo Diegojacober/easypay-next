@@ -1,23 +1,30 @@
-import { Dispatch, InputHTMLAttributes, SetStateAction } from "react";
+import { DetailedHTMLProps, Dispatch, HTMLAttributes, InputHTMLAttributes, SetStateAction } from "react";
 import { InputArea } from "./styled";
+import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
-    type: string;
-    value: string | number;
-    set: Dispatch<SetStateAction<string>>;
-    placeholder: string;
+  type: string;
+  placeholder: string;
+  register: UseFormRegister<FieldValues>;
+  errors: FieldErrors<FieldValues>
+  validationSchema: any;
+  name: string
 }
 
-export default function Input({ set, type, value, placeholder, ...rest }: InputProps) {
+export default function Input({ type, placeholder, errors, validationSchema, register, name, ...rest }: InputProps) {
   return (
     <InputArea>
       <input
+        id={name}
         type={type}
         placeholder={placeholder}
-        value={value}
-        onChange={(e) => set(e.target.value)}
+        {...register(name, validationSchema)}
         {...rest}
       />
+
+      {errors && (
+        <span className="error">{errors.root?.message}</span>
+      )}
     </InputArea>
   );
 }

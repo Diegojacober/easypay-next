@@ -9,6 +9,7 @@ import Footer from "@/components/Footer";
 import TopSection from "@/components/TopSection";
 import { GetStaticProps } from "next";
 import Header from "@/components/Header";
+import useAuthStore from "@/store/useAuthStore";
 
 
 interface HomeProps {
@@ -17,6 +18,7 @@ interface HomeProps {
 }
 
 export default function Home({ partners, clients }: HomeProps) {
+
   return (
     <>
       <Head>

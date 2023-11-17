@@ -3,9 +3,25 @@ import Link from "next/link";
 import logo from "@/../public/assets/logo.svg";
 import Image from "next/image";
 import { useRouter } from 'next/navigation'
+import useAuthStore from "@/store/useAuthStore";
+import { useEffect, useState } from "react";
 
 export default function Header() {
+  const [isAuthenticated, logout] = useAuthStore(
+    (state) => [
+      state.isAuthenticated,
+      state.logout
+    ]
+  );
+
   const router = useRouter()
+
+  const [isClient, setIsClient] = useState(false)
+
+  useEffect(() => {
+    setIsClient(true)
+  }, [])
+
   return (
     <header className={styles.header}>
       <section className={styles.content}>
@@ -23,22 +39,34 @@ export default function Header() {
           </Link>
 
           <div className={styles.navLinks}>
-            <div className={styles.navOptions}>
-              <Link href="/about" className={styles.link}>
-                The Bank
-              </Link>
-              <Link href="/explore" className={styles.link}>
-                For you
-              </Link>
-              <Link href="/blog" className={styles.link}>
-                Blog
-              </Link>
-            </div>
 
-            <div className={styles.navButtons}>
-              <button  onClick={() => router.push('/register', { scroll: false })} className={styles.createButton}>Create Account</button>
-              <button onClick={() => router.push('/login', { scroll: false })} className={styles.loginButton}>Access</button>
-            </div>
+            {isAuthenticated && isClient ? (
+              <>
+              </>
+            ) : (
+              <div className={styles.navOptions}>
+                <Link href="/about" className={styles.link}>
+                  The Bank
+                </Link>
+                <Link href="/explore" className={styles.link}>
+                  For you
+                </Link>
+                <Link href="/blog" className={styles.link}>
+                  Blog
+                </Link>
+              </div>
+            )}
+
+            {isAuthenticated && isClient ? (
+              <div className={styles.navButtons}>
+                <button onClick={logout} className={styles.logoutButton}>Logut</button>
+              </div>
+            ) : (
+              <div className={styles.navButtons}>
+                <button onClick={() => router.push('/register', { scroll: false })} className={styles.createButton}>Create Account</button>
+                <button onClick={() => router.push('/login', { scroll: false })} className={styles.loginButton}>Access</button>
+              </div>
+            )}
           </div>
         </nav>
       </section>
