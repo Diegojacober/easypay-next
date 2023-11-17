@@ -16,6 +16,7 @@ export default function Header() {
 
   const router = useRouter()
 
+  // https://nextjs.org/docs/messages/react-hydration-error
   const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
