@@ -1,17 +1,42 @@
 import Head from "next/head";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import image from "@/../public/assets/finnancas-image.svg";
 import styles from "@/styles/Login.module.css";
 import Image from "next/image";
 import Link from "next/link";
 import Input from "@/components/Input";
+import { useForm } from "react-hook-form";
+import useAuthStore from "@/store/useAuthStore";
+import Router from "next/router";
 
 export default function Register() {
-  const [email, setEmail] = useState<string>("");
-  const [firstName, setFirstName] = useState<string>("");
-  const [lastName, setLastName] = useState<string>("");
-  const [CPF, setCPF] = useState<string>("");
-  const [password, setPassword] = useState<string>("");
+
+  const {
+    register,
+    handleSubmit,
+    reset,
+    formState: { errors },
+  } = useForm();
+
+
+  const [signUp, isAuthenticated] = useAuthStore(
+    (state) => [
+      state.signUp,
+      state.isAuthenticated
+    ]
+  );
+
+  const onSubmit = async (data: any) => {
+    signUp(data.email, data.password, data.firstName, data.lastName, data.cpf, reset)
+  };
+
+
+  useEffect(() => {
+    if (isAuthenticated) {
+      Router.push("/home")
+    }
+  }, []);
+
 
   return (
     <>
@@ -27,40 +52,85 @@ export default function Register() {
               <p>Create your account</p>
             </div>
 
-            <form className={styles.form}>
+            <form className={styles.form} onSubmit={handleSubmit(onSubmit)}>
               <Input
                 type="email"
-                value={email}
-                set={setEmail}
                 placeholder="E-mail"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "Email is required",
+                  minLength: {
+                    value: 3,
+                    message: "Please enter a minimum of 3 characters"
+                  }
+                }}
+                name="email"
+                required
               />
 
               <Input
                 type="text"
-                value={firstName}
-                set={setFirstName}
                 placeholder="First Name"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "First name is required",
+                  minLength: {
+                    value: 3,
+                    message: "Please enter a minimum of 3 characters"
+                  }
+                }}
+                name="firstName"
+                required
               />
 
               <Input
                 type="text"
-                value={lastName}
-                set={setLastName}
                 placeholder="Last Name"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "Last name is required",
+                  minLength: {
+                    value: 3,
+                    message: "Please enter a minimum of 3 characters"
+                  }
+                }}
+                name="lastName"
+                required
               />
 
               <Input
                 type="text"
-                value={CPF}
-                set={setCPF}
                 placeholder="CPF(no special characters)"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "CPF is required",
+                  minLength: {
+                    value: 11,
+                    message: "Please enter 11 characters"
+                  }
+                }}
+                name="cpf"
+                required
               />
 
               <Input
                 type="password"
-                value={password}
-                set={setPassword}
                 placeholder="Password"
+                errors={errors}
+                register={register}
+                validationSchema={{
+                  required: "Password is required",
+                  minLength: {
+                    value: 6,
+                    message: "Please enter a minimum of 6 characters"
+                  }
+                }}
+                name="password"
+                required
               />
 
               <button type="submit">Register</button>

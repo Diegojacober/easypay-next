@@ -1,6 +1,9 @@
 import { DetailedHTMLProps, Dispatch, HTMLAttributes, InputHTMLAttributes, SetStateAction } from "react";
 import { InputArea } from "./styled";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
+import { ErrorMessage } from "@hookform/error-message";
+import { toast } from "react-toastify";
+import { useState } from 'react';
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
@@ -12,6 +15,11 @@ interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
 }
 
 export default function Input({ type, placeholder, errors, validationSchema, register, name, ...rest }: InputProps) {
+
+  if (errors[name]) {
+    toast.error(`Field ${name.toUpperCase()}: ${errors[name]?.message}`)
+  }
+
   return (
     <InputArea>
       <input
@@ -20,11 +28,8 @@ export default function Input({ type, placeholder, errors, validationSchema, reg
         placeholder={placeholder}
         {...register(name, validationSchema)}
         {...rest}
+        style={errors[name] ? {borderBottom: '1px solid #f00'} : {borderBottom: '1px solid var(--white)'}}
       />
-
-      {errors && (
-        <span className="error">{errors.root?.message}</span>
-      )}
     </InputArea>
   );
 }

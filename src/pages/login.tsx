@@ -26,8 +26,7 @@ export default function Login() {
   );
 
   const onSubmit = async (data: any) => {
-    signIn(data.email, data.password)
-    reset();
+    signIn(data.email, data.password, reset);
   };
 
   useEffect(() => {

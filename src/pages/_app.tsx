@@ -4,6 +4,8 @@ import type { AppProps } from "next/app";
 import { ThemeProvider } from "styled-components";
 import Theme from "@/styles/Theme";
 import { useState } from "react";
+import 'react-toastify/dist/ReactToastify.css';
+import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
   const [queryClient] = useState(
@@ -21,6 +23,7 @@ export default function App({ Component, pageProps }: AppProps) {
   return (
     <QueryClientProvider client={queryClient}>
       <ThemeProvider theme={Theme}>
+        <ToastContainer/>
         <Component {...pageProps} />
       </ThemeProvider>
     </QueryClientProvider>
