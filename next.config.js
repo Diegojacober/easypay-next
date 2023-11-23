@@ -15,6 +15,7 @@ module.exports = {
     ignoreDuringBuilds: true,
   },
   images: {
+    domains: ['127.0.0.1', 'ui-avatars.com', 'localhost'],
     remotePatterns: [
         {
             protocol: 'https',

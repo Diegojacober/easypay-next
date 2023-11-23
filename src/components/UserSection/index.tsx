@@ -21,7 +21,6 @@ export default function UserSection() {
     );
 
     const [avatarUrl, setAvatarUrl] = useState(user && user.url_image)
-    const [imageAvatar, setImageAvatar] = useState(null)
 
     function handleFile(e: any) {
         let files = e.target.files
@@ -37,7 +36,6 @@ export default function UserSection() {
                     }
                 }).then((resp) => {
                     toast.success("Imagem atualizada com sucesso")
-                    setImageAvatar(image)
                     setAvatarUrl(URL.createObjectURL(image))
                     return
                 }).catch(err => {
@@ -50,26 +48,30 @@ export default function UserSection() {
     }
 
     return (
-        <Container>
-            <ImageSection>
-                <label className='label-avatar'>
-                    <span>
-                        <AiOutlineCloudUpload size={25} color='#000000' />
-                    </span>
+        <>
+            {isClient && (
+                <Container>
+                    <ImageSection>
+                        <label className='label-avatar'>
+                            <span>
+                                <AiOutlineCloudUpload size={25} color='#000000' />
+                            </span>
 
 
-                    <input type='file' accept='image/png, image/jpeg' onChange={handleFile} /><br />
+                            <input type='file' accept='image/png, image/jpeg' onChange={handleFile} /><br />
 
-                    <Image alt="User image" style={{ borderRadius: '50%' }} width={60} height={60} src={avatarUrl === null ? `https://ui-avatars.com/api/?background=random&name=${user?.first_name}${user?.last_name}` : avatarUrl} priority />
+                            <Image alt="User image" style={{ borderRadius: '50%' }} width={60} height={60} src={avatarUrl === null ? `https://ui-avatars.com/api/?background=random&name=${user?.first_name}${user?.last_name}` : avatarUrl} priority />
 
-                </label>
-            </ImageSection>
+                        </label>
+                    </ImageSection>
 
-            <UserDetailsSection>
-                <h4>{user?.first_name} {user?.last_name}</h4>
-                <div className="divisor"></div>
-                <p>{user?.email}</p>
-            </UserDetailsSection>
-        </Container>
+                    <UserDetailsSection>
+                        <h4>{user?.first_name} {user?.last_name}</h4>
+                        <div className="divisor"></div>
+                        <p>{user?.email}</p>
+                    </UserDetailsSection>
+                </Container>
+            )}
+        </>
     )
 }
