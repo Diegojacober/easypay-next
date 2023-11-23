@@ -6,6 +6,7 @@ import styles from "@/styles/User.module.css";
 import useAuthStore from "@/store/useAuthStore";
 import { useEffect } from "react";
 import Router from "next/router";
+import UserSection from "@/components/UserSection";
 
 export default function Home() {
     const [getUser, isAuthenticated, token] = useAuthStore(
@@ -31,10 +32,11 @@ export default function Home() {
     return (
         <>
             <Head>
-                <title>Opaa</title>
+                <title>Home</title>
             </Head>
 
             <Header/>
+            <UserSection/>
             <main className={styles.main}>
                 <TransferSection />
                 <CardSection />

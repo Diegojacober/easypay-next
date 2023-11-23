@@ -9,6 +9,7 @@ type CardType = {
     cvv: number
     cardNumber: string
     cardName: string
+    date: string
 }
 
 interface ICardProps {
@@ -27,11 +28,11 @@ export default function Card({ card }: ICardProps) {
                 </div>
 
                 <div className="card--infos">
-                    <h3>4556 3325 8590 3732</h3>
+                    <h3>{card.cardNumber}</h3>
                     <div className="infos">
-                        <p>Diego A Jacober</p>
-                        <p>09/20</p>
-                        <p>156</p>
+                        <p>{card.cardName}</p>
+                        <p>{card.date}</p>
+                        <p>{card.cvv}</p>
                     </div>
                 </div>
             </CardArea>

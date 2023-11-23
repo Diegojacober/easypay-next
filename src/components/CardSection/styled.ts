@@ -4,11 +4,10 @@ export const Container = styled.section`
     width: 100%;
 
     @media screen and (max-width: 500px) {
-
         & {
             display: none;
         }
-        }
+    }
 `;
 
 export const Title = styled.h2`

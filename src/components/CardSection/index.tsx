@@ -11,6 +11,7 @@ export default function CardSection() {
                 cardNumber: "4556 3325 8590 3732",
                 cardName: "Salman",
                 cvv: 334,
+                date: '10/30',
                 id: 5
             }}/>
         </Container>
