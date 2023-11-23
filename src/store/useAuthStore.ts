@@ -92,7 +92,7 @@ const useAuthStore = create(
             },
             signUp: async (email: string, password: string, firstName: string, lastName: string, cpf: string, reset: UseFormReset<FieldValues>) => {
 
-                await api.post<SignUpResponse>("/user/create", {
+                await api.post<SignUpResponse>("/user/create/", {
                     email,
                     password,
                     first_name: firstName,
