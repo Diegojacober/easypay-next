@@ -4,23 +4,9 @@ import { Container, Loader, Title } from "./styled";
 import api from "@/services/api";
 import { toast } from "react-toastify";
 import useAuthStore from "@/store/useAuthStore";
+import { Transfer } from "@/queries/transfers/types";
 
-interface Transfer {
-    id: number,
-    from_account: {
-        id: number,
-        agencia: string,
-        numero: string
-    },
-    to_account_id: number,
-    to_account: {
-        id: number,
-        agencia: string,
-        numero: string
-    },
-    value: number,
-    created_at: string
-}
+
 
 export default function TransferSection() {
 
