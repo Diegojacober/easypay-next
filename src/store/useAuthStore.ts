@@ -19,6 +19,7 @@ interface UserStore {
     accessToken: string;
     refreshToken: string;
     isAuthenticated: boolean;
+    account: Account | null;
     getUser: (token: string) => void;
     signIn: (email: string, password: string, reset: UseFormReset<FieldValues>) => void;
     signUp: (email: string, password: string, firstName: string, lastName: string, cpf: string, reset: UseFormReset<FieldValues>) => void;
@@ -38,12 +39,19 @@ interface SignUpResponse {
     url_image: string
 }
 
+interface Account {
+    id: number,
+    agencia: string,
+    numero: string
+}
+
 const useAuthStore = create(
     persist<UserStore>(
         (set) => ({
             user: null,
             accessToken: '',
             refreshToken: '',
+            account: null,
             isAuthenticated: false,
             signIn: async (email: string, password: string, reset: UseFormReset<FieldValues>) => {
                 await api.post<AuthApiResponse>("/token/", {
@@ -69,18 +77,48 @@ const useAuthStore = create(
             },
             getUser: async (token: string) => {
 
-                const { data, status } = await api.get<User>("/user/me/", {
+                await api.get<User>("/user/me/", {
                     headers: {
                         Authorization: `Bearer ${token}`
                     }
-                })
+                }).then(async (resp) => {
+                    if (resp.status == 200) {
+                        set((state) => ({
+                            user: resp.data
+                        }))
+                        api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
 
-                if (status == 200) {
-                    set((state) => ({
-                        user: data
-                    }))
-                    api.defaults.headers.common['Authorization'] = `Bearer ${token}`;
-                }
+                        await api.get<Account[]>("/v1/accounts/").then(async (resp) => {
+                            if (resp.data.length < 1) {
+                                await api.post("/v1/accounts").then(async (response) => {
+                                    if (response.data.message == "created") {
+                                        toast.info("Uma nova conta acaba de ser criada")
+                                        await api.get<Account[]>("/v1/accounts/").then(accounts => {
+                                            set((state) => ({
+                                                account: accounts.data[0]
+                                            }))
+                                        })
+                                    }
+                                })
+                            } else {
+                                set((state) => ({
+                                    account: resp.data[0]
+                                }))
+                            }
+                        }).catch(err => {})
+                    }
+                }).catch(erro => {
+                    if (erro.response.status === 401) {
+                        set((state) => ({
+                            accessToken: '',
+                            refreshToken: '',
+                            user: null,
+                            isAuthenticated: false,
+                        }))
+                        Router.push("/login")
+                        toast.info("Sessão expirada! faça login novamente")
+                    }
+                })
             },
             logout: () => {
                 set((state) => ({
@@ -109,10 +147,6 @@ const useAuthStore = create(
                         }
                     }
                 })
-
-
-
-
             },
         }), {
         name: 'user-storage'

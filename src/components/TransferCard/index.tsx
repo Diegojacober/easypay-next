@@ -8,6 +8,7 @@ type Transfer = {
     date: string;
     type: string;
     value: number;
+    name: string
 };
 
 interface ITransferCard {
@@ -22,7 +23,7 @@ export default function TransferCard({ transfer }: ITransferCard) {
                     <Image alt="opa" src={transfer.type == "sender" ? sender : receiver} />
                 </ImageArea>
                 <div>
-                    <p>{transfer.type == "sender" ? `To loggedUser` : `For me`}</p>
+                    <p>{transfer.type == "sender" ? `To ${transfer.name}` : `For me`}</p>
                     <small>{transfer.date}</small>
                 </div>
             </InfoArea>

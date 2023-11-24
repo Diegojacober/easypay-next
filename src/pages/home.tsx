@@ -4,21 +4,24 @@ import TransferSection from "@/components/TransfersSection";
 import Head from "next/head";
 import styles from "@/styles/User.module.css";
 import useAuthStore from "@/store/useAuthStore";
-import { useEffect } from "react";
+import { useEffect, useState } from "react";
 import Router from "next/router";
 import UserSection from "@/components/UserSection";
 
+
+
 export default function Home() {
-    const [getUser, isAuthenticated, token] = useAuthStore(
+    const [getUser, isAuthenticated, token, account] = useAuthStore(
         (state) => [
             state.getUser,
             state.isAuthenticated,
-            state.accessToken
+            state.accessToken,
+            state.account
         ]
     );
 
     useEffect(() => {
-        function loadPage() {
+        async function loadPage() {
             if (isAuthenticated) {
                 getUser(token)
             } else {
