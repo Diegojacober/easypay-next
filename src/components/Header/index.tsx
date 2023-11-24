@@ -5,8 +5,17 @@ import Image from "next/image";
 import { useRouter } from 'next/navigation'
 import useAuthStore from "@/store/useAuthStore";
 import { useEffect, useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
 export default function Header() {
+
+  // https://nextjs.org/docs/messages/react-hydration-error
+  const [isClient, setIsClient] = useState<boolean>(false)
+  const [dolar, setDolar] = useState<number>(0.0)
+  const router = useRouter()
+
+
   const [isAuthenticated, logout] = useAuthStore(
     (state) => [
       state.isAuthenticated,
@@ -14,12 +23,21 @@ export default function Header() {
     ]
   );
 
-  const router = useRouter()
+  const formatter = new Intl.NumberFormat('pt-BR', {
+    style: 'currency',
+    currency: 'BRL',
+  });
 
-  // https://nextjs.org/docs/messages/react-hydration-error
-  const [isClient, setIsClient] = useState(false)
 
   useEffect(() => {
+    async function getApi() {
+      await axios.get("https://economia.awesomeapi.com.br/json/last/USD-BRL").then((resp) => {
+        setDolar(resp.data.USDBRL.ask)
+      }).catch(err => {
+        toast.error("Erro ao conectar com o servidor de moedas!")
+      })
+    }
+    getApi()
     setIsClient(true)
   }, [])
 
@@ -27,17 +45,21 @@ export default function Header() {
     <header className={styles.header}>
       <section className={styles.content}>
         <nav className={styles.nav}>
-          <Link href="/" style={{ textDecoration: "None" }}>
-            <div className={styles.logoContent}>
-              <Image
-                className={styles.logo}
-                alt="logo easypay bank"
-                src={logo}
-                priority
-              />
-              <p>EasyPay Bank</p>
-            </div>
-          </Link>
+          {isAuthenticated && isClient ? (
+            <p style={{ color: "#FFF", borderBottom: "1px solid #FFF" }}>Dólar hoje(USD): {formatter.format(dolar)}</p>
+          ) : (
+            <Link href="/" style={{ textDecoration: "None" }}>
+              <div className={styles.logoContent}>
+                <Image
+                  className={styles.logo}
+                  alt="logo easypay bank"
+                  src={logo}
+                  priority
+                />
+                <p>EasyPay Bank</p>
+              </div>
+            </Link>
+          )}
 
           <div className={styles.navLinks}>
 
