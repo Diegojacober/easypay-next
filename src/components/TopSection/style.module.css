@@ -51,6 +51,7 @@
   justify-content: center;
   gap: 8px;
   font-size: 1.5rem;
+  text-decoration: none;
 }
 
 @media screen and (max-width: 1200px) {

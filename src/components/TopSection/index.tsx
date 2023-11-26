@@ -3,6 +3,7 @@ import Image from "next/image";
 import phone from "@/../public/assets/phone.svg";
 import phones from "@/../public/assets/phones.svg";
 import { AiOutlineArrowRight } from "react-icons/ai";
+import Link from "next/link";
 
 interface TopSectionProps {
   topText: string;
@@ -29,9 +30,9 @@ export default function TopSection({
       <div className={styles.centerDiv}>
         <span className={styles.topText}>{topText}</span>
         <h1 className={styles.mainText}>{mainText}</h1>
-        <button className={styles.mainButton}>
+        <Link href={"/register"} className={styles.mainButton}>
           {buttonText} <AiOutlineArrowRight size={14} color="##3883BB" />
-        </button>
+        </Link>
       </div>
 
       <div className={styles.rightDiv}>
