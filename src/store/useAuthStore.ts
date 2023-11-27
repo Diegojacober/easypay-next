@@ -90,7 +90,7 @@ const useAuthStore = create(
 
                         await api.get<Account[]>("/v1/accounts/").then(async (resp) => {
                             if (resp.data.length < 1) {
-                                await api.post("/v1/accounts").then(async (response) => {
+                                await api.post("/v1/accounts/").then(async (response) => {
                                     if (response.data.message == "created") {
                                         toast.info("Uma nova conta acaba de ser criada")
                                         await api.get<Account[]>("/v1/accounts/").then(accounts => {
