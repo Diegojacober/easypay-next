@@ -68,13 +68,13 @@ export default function Header() {
               </>
             ) : (
               <div className={styles.navOptions}>
-                <Link href="/about" className={styles.link}>
+                <Link href="/" className={styles.link}>
                   The Bank
                 </Link>
-                <Link href="/explore" className={styles.link}>
+                <Link href="/" className={styles.link}>
                   For you
                 </Link>
-                <Link href="/blog" className={styles.link}>
+                <Link href="/" className={styles.link}>
                   Blog
                 </Link>
               </div>
