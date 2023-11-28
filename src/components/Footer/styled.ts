@@ -16,4 +16,10 @@ export const FooterContainer = styled.footer`
         color: ${(props) => props.theme.color.secundary.contrastText};
         font-size: 18px;
     }
+
+    @media screen and (max-width: 815px) {
+    & p{
+        font-size: 13px;
+    }
+  }
 `;
