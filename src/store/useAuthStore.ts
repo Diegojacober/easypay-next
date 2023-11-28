@@ -1,50 +1,13 @@
 import api from "@/services/api";
 import Router from "next/router";
-import { setCookie } from 'nookies'
+import { setCookie } from 'nookies';
 import { FieldValues, UseFormReset } from "react-hook-form";
 import { toast } from "react-toastify";
 import { create } from "zustand";
 import { persist } from "zustand/middleware";
+import { Account, AuthApiResponse, SignUpResponse, User, UserStore } from "./types";
 
-type User = {
-    email: string,
-    first_name: string,
-    last_name: string,
-    cpf: string,
-    url_image: string
-}
-
-interface UserStore {
-    user: User | null;
-    accessToken: string;
-    refreshToken: string;
-    isAuthenticated: boolean;
-    account: Account | null;
-    getUser: (token: string) => void;
-    signIn: (email: string, password: string, reset: UseFormReset<FieldValues>) => void;
-    signUp: (email: string, password: string, firstName: string, lastName: string, cpf: string, reset: UseFormReset<FieldValues>) => void;
-    logout: () => void;
-};
-
-interface AuthApiResponse {
-    access: string;
-    refresh: string;
-}
-
-interface SignUpResponse {
-    email: string,
-    first_name: string,
-    last_name: string,
-    cpf: string,
-    url_image: string
-}
-
-interface Account {
-    id: number,
-    agencia: string,
-    numero: string
-}
-
+// Cria todas as funções que utilizaria em outros arquivos, mais de uma vez, mas com o mesmo estado. Então aqui é um gerenciador de estados, a biblioteca utilizada é o zustand
 const useAuthStore = create(
     persist<UserStore>(
         (set) => ({
@@ -105,7 +68,7 @@ const useAuthStore = create(
                                     account: resp.data[0]
                                 }))
                             }
-                        }).catch(err => {})
+                        }).catch(err => { })
                     }
                 }).catch(erro => {
                     if (erro.response.status === 401) {

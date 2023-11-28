@@ -8,6 +8,7 @@ import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
 
 export default function App({ Component, pageProps }: AppProps) {
+  //configurando react query
   const [queryClient] = useState(
     () =>
       new QueryClient({

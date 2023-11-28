@@ -9,7 +9,6 @@ import Router from "next/router";
 import UserSection from "@/components/UserSection";
 
 
-
 export default function Home() {
     const [getUser, isAuthenticated, token, account] = useAuthStore(
         (state) => [

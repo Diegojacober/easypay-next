@@ -1,3 +1,4 @@
+//configurando tema global, que pode ser utilizado na aplicação toda
 const Theme = {
   color: {
     background: "#101F36",

@@ -2,7 +2,6 @@ import { useQuery, QueryFunctionContext } from "@tanstack/react-query";
 import api from "../../services/api";
 import { Transfer } from "./types";
 import { toast } from "react-toastify";
-import useAuthStore from "@/store/useAuthStore";
 
 
 async function getTransfers(ctx: QueryFunctionContext) {

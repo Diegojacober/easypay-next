@@ -10,7 +10,6 @@ import useAuthStore from "@/store/useAuthStore";
 import Router from "next/router";
 
 export default function Register() {
-
   const {
     register,
     handleSubmit,
