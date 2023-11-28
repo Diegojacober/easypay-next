@@ -1,40 +1,70 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## Getting Started
+# EasyPay (Next)
 
-First, run the development server:
+Parte web(front-end) do projeto integrador do 2º semestre do SENAI "Roberto Mange".
+
+
+
+## Pastas
+
+- /public - Arquivos publicos que podem ser acessados sem questões de segurança.
+- /src - Source da nossa aplicação, todo o conteudo está aqui dentro.
+- /src/components - Todos componentes que podem ser utilizados 1 ou mais vezes estão aqui dentro para que possam ser reutilizados.
+- /src/pages - Páginas da nossa aplicação, o roteamento dessas páginas é criado automaticamente pelo Next.JS.
+- /src/queries/transfer - Queries ou seja requisições que utilizaremos com o react query e faremos a camada de cache da nossa aplicação relacionadas a transferencias de contas.
+- /src/services - servicos externos que temos que configurar para a aplicação, neste caso o axios e o react query.
+- /src/store - pasta que contem os arquivos para o gerenciamento de estado da aplicação, criado com zustand. 
+- src/styles - Estilos gerais da aplicação, configuração de css para paginas e também do styled-componentes
+## Funcionalidades
+
+- Cadastrar conta
+- Logar na conta
+- Exibir transferências em tempo real
+- Exibir dólar no dia de hoje
+- Atualizar imagem do usuário
+- Visualizar dados do usuário cadastrado
+
+
+## Stack utilizada
+
+[**Front-end:**](https://github.com/Diegojacober/easypay-next) Nexts.JS, React Query, Zustand, Styled-components
+
+[**Back-end:**](https://github.com/Diegojacober/easypay-aws) Django Rest Framework
+
+[**Devops**](http://3.149.244.237/api/docs/): Docker, Nginx, AWS EC2
+
+
+## Rodando localmente
+
+Clone o projeto
 
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+  git clone https://github.com/Diegojacober/easypay-next.git
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Entre no diretório do projeto
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+```bash
+  cd easypay-next
+```
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+Instale as dependências
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+```bash
+  npm install
+```
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+Configure a API, entre no arquivo src/services/api.ts e coloque:
+```
+const api = axios.create({
+  baseURL: "http://3.149.244.237/api",
+});
 
-## Learn More
+``` 
 
-To learn more about Next.js, take a look at the following resources:
+Inicie o servidor
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+```bash
+  npm run dev
+```
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.

@@ -9,7 +9,6 @@ import Footer from "@/components/Footer";
 import TopSection from "@/components/TopSection";
 import { GetStaticProps } from "next";
 import Header from "@/components/Header";
-import useAuthStore from "@/store/useAuthStore";
 
 
 interface HomeProps {
@@ -43,12 +42,6 @@ export default function Home({ partners, clients }: HomeProps) {
 }
 
 export const getStaticProps: GetStaticProps = async () => {
-  // const commentRef = collection(db, "comments")
-  // const commentSnapshot = await getDocs(commentRef)
-
-  // const postRef = collection(db, "tarefas")
-  // const postSnapshot = await getDocs(postRef)
-
   return {
     props: {
       partners: 5,

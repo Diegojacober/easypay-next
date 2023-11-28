@@ -1,9 +1,7 @@
-import { DetailedHTMLProps, Dispatch, HTMLAttributes, InputHTMLAttributes, SetStateAction } from "react";
-import { InputArea } from "./styled";
+import { InputHTMLAttributes } from "react";
 import { FieldErrors, FieldValues, UseFormRegister } from "react-hook-form";
-import { ErrorMessage } from "@hookform/error-message";
 import { toast } from "react-toastify";
-import { useState } from 'react';
+import { InputArea } from "./styled";
 
 interface InputProps extends InputHTMLAttributes<HTMLInputElement> {
   type: string;
